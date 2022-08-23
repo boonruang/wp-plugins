@@ -140,6 +140,13 @@ divsToUpdate.forEach(function (div) {
 
 function Quiz(props) {
   const [isCorrect, setIsCorrect] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(undefined);
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
+    if (isCorrect === false) {
+      setTimeout(() => {
+        setIsCorrect(undefined);
+      }, 2600);
+    }
+  }, [isCorrect]);
 
   function handleAnswer(index) {
     if (index == props.correctAnswer) {
@@ -153,7 +160,7 @@ function Quiz(props) {
     className: "paying-attention-frontend"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, props.question), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", null, props.answers.map(function (answer, index) {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
-      onClick: () => handleAnswer(index)
+      onClick: isCorrect === true ? undefined : () => handleAnswer(index)
     }, answer);
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "correct-message" + (isCorrect == true ? " correct-message--visible" : "")
