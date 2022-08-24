@@ -5,6 +5,8 @@ add scripts
 "build": "wp-scripts build",
 "start": "wp-scripts start",
 
+npm run start
+
 npm install @wordpress/scripts --save
 
 run in web console
