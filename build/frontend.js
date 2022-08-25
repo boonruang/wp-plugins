@@ -121,11 +121,11 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom */ "react-dom");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _frontend_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./frontend.scss */ "./src/frontend.scss");
+/* harmony import */ var _frontend_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./frontend.scss */ "./src/frontend.scss");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-dom */ "react-dom");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_3__);
 
 
 
@@ -134,14 +134,14 @@ const divsToUpdate = document.querySelectorAll(".paying-attention-update-me");
 divsToUpdate.forEach(function (div) {
   const data = JSON.parse(div.querySelector("pre").innerHTML); // ReactDOM.render(<Quiz data={data} />, div)
 
-  react_dom__WEBPACK_IMPORTED_MODULE_2___default().render((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Quiz, data), div);
+  react_dom__WEBPACK_IMPORTED_MODULE_3___default().render((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Quiz, data), div);
   div.classList.remove("paying-attention-update-me");
 });
 
 function Quiz(props) {
-  const [isCorrect, setIsCorrect] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(undefined);
-  const [isCorrectDelayed, setIsCorrectDelayed] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(undefined);
-  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
+  const [isCorrect, setIsCorrect] = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(undefined);
+  const [isCorrectDelayed, setIsCorrectDelayed] = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(undefined);
+  (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
     if (isCorrect === false) {
       setTimeout(() => {
         setIsCorrect(undefined);
@@ -164,7 +164,10 @@ function Quiz(props) {
   }
 
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "paying-attention-frontend"
+    className: "paying-attention-frontend",
+    style: {
+      backgroundColor: props.bgColor
+    }
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, props.question), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", null, props.answers.map(function (answer, index) {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
       className: (isCorrectDelayed === true && index == props.correctAnswer ? "no-click" : "") + (isCorrectDelayed === true && index != props.correctAnswer ? "fade-incorrect" : ""),
@@ -177,7 +180,7 @@ function Quiz(props) {
       viewBox: "0 0 16 16"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
       d: "M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"
-    })), isCorrectDelayed === true && index !== props.correctAnswer && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+    })), isCorrectDelayed === true && index != props.correctAnswer && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
       xmlns: "http://www.w3.org/2000/svg",
       width: "20",
       height: "20",

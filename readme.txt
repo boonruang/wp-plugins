@@ -14,3 +14,5 @@ wp.data.select("core/block-editor").getBlocks()
 
 git
 git add . && git commit -m "138. How To Use React on The Front-End of WordPress" && git push
+
+npm install react-color
